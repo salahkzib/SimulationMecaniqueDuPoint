@@ -1,6 +1,6 @@
 ﻿namespace SimulationMecaniqueDuPointProgram
 {
-    partial class Form1
+    partial class App
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            SuspendLayout();
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "Form1";
+            Name = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
