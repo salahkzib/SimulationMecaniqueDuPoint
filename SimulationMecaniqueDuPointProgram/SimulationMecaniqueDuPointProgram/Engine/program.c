@@ -48,7 +48,7 @@ double AccelerationPrimeCalcul(Expression expression){
 
 
 Expression MouvementEquationDeterminant(Point point){
-
+    
 }
 Expression VitesseEquationeterminant(Point point){
 
