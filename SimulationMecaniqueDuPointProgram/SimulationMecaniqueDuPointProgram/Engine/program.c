@@ -1,9 +1,36 @@
 #include <stdio.h>
 #include "program.h"
 
+void Initializing(String TypeExperienceParam, Plan planParam, Component *ComposantsParam, Force *ForcesExerceesParam, Force *ForceExternesParam, VectorDouble SensParam, VectorDouble PositionsInitialParam, int VitesseInitialParam, int masseParam, VectorDouble DonnesParam, VectorString QuestionsParam){
+    t = 0;
+    point.masse = masseParam;
+    if(planParam.dimentions == 1){
+        point.Vector.D1.x = PositionsInitialParam.data[0];
+    }else if(planParam.dimentions == 2){
+        point.Vector.D2.x = PositionsInitialParam.data[0];
+        point.Vector.D2.y = PositionsInitialParam.data[1];
+    }else if(planParam.dimentions == 3){
+        point.Vector.D3.x = PositionsInitialParam.data[0];
+        point.Vector.D3.y = PositionsInitialParam.data[1];
+        point.Vector.D3.z = PositionsInitialParam.data[2];
+    }
+    point.EnergieCinetique = 0;
+    TypeExperience = TypeExperienceParam;
+    plan = planParam;
+    Components = ComposantsParam;
+    ForcesExercees = ForcesExerceesParam;
+    ForceExternes = ForceExternesParam;
+    ConditionsInitiales = SensParam;
+    Donnes = DonnesParam;
+    Questions = QuestionsParam;
+
+}
+
 String TrajectoireType(VectorInt Trajectoire){
 
 }
+
+
 
 double EnergieMecaniqueCalcul(Expression expression){
 
@@ -48,7 +75,7 @@ double AccelerationPrimeCalcul(Expression expression){
 
 
 Expression MouvementEquationDeterminant(Point point){
-    
+
 }
 Expression VitesseEquationeterminant(Point point){
 

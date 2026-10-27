@@ -5,16 +5,25 @@
 #include "types.h"
 
 typedef struct _Point{
-    int x;
-    int y;
+    union{
+        struct{
+            int x;
+        }D1;
+        struct{
+            int x;
+            int y;
+            int z;
+        }D3;
+        struct{
+            double x;
+            double y;
+        }D2;
+    }Vector;
     double EnergieMecanique;
     double EnergiePotentielle;
     double EnergieCinetique;
     double vitesse;
     double acceleration;
-    double vitesseX;
-    double vitesseY;
-    double vitesseZ;
     double MomentCinetique;
     double VitesseEntrainement;
     double AccelerationEntrainement;
@@ -42,11 +51,29 @@ typedef struct _Component{
     char type;
 }Component, *PtrComponent;
 
+typedef struct _Plan{
+    char type;
+    int dimentions;
+}Plan, *PtrPlan;
+
 typedef struct _Force{
+    double value;
     String TravailExpression;
     double Travail;
 }Force, *PtrForce;
-extern Force Gravity, Archimede, PlanReaction;
+
+Point point;
+int t;
+extern String TypeExperience;
+extern Plan plan;
+extern Component *Components;
+extern Force *ForcesExercees;
+extern Force *ForceExternes;
+extern VectorDouble ConditionsInitiales;
+extern VectorDouble Donnes;
+extern VectorString Questions;
+
+void Initializing();
 
 String TrajectoireType(VectorInt Trajectoire);
 
@@ -74,5 +101,7 @@ Expression AccelerationEquationeterminant(Point point);
 Expression AccelerationCoriolisEquationeterminant(Point point);
 Expression AccelerationPrimeEquationeterminant(Point point);
 Expression AccelerationEntrainementEquationeterminant(Point point);
+
+
 
 #endif

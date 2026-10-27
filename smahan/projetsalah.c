@@ -20,9 +20,11 @@ return sqrtf(v.x*v.x+v.y*v.y+v.z*v.z);
 // vecteur unitaire 
 Vector3D vec_uni(Vector3D v){
 float lenth = vec_norm(v);
-if lenth = 0.0f return(Vector3D){0.0f ,0.0f ,0.0f};
+if (lenth == 0.0f) return(Vector3D){0.0f ,0.0f ,0.0f};
 return (Vector3D){v.x/lenth , v.y/lenth ,v.z/lenth };
 }
+
+
 // fin cote math 
 //cote physique 
 typedef struct {
