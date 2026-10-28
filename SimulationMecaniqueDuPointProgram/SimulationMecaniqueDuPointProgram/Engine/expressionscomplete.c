@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <math.h>
 #include "program.h"
 
 String TrajectoireType(VectorInt Trajectoire){
@@ -85,15 +85,7 @@ void AllExpretions(){
 
 }
       
-typedef struct {
-      int dimensions;
-      double ax , bx , cx ;
-      double ay , by , cy ;
-      double az , bz , cz ;
-      double x0 , dx0 ;
-      double y0 , dy0 ;
-      double z0 , dz0 ;
-} plan;
+
 void solve_first_order(double a, double y0){
    if (a == 0 ){
       printf(" erreur ");
@@ -132,17 +124,17 @@ void solve_second_order( double a, double b, double c , double y0 , double dy0){
      }
 }
 void DetEquationMov(){
-      if (plan.dimensions == 3){
-            slove_second_order(plan.ax, plan.bx, plan.cx, plan.x0, plan.dx0);
-            slove_second_order(plan.ay, plan.by, plan.cy, plan.y0, plan.dy0);
-            slove_second_order(plan.az, plan.bz, plan.cz, plan.z0, plan.dz0);
+      if (plan.dimentions == 3){
+            slove_second_order(point.Vector.D3.ax, point.Vector.D3.bx, point.Vector.D3.cx, point.Vector.D3.x0, point.Vector.D3.dx0);
+            slove_second_order(point.Vector.D3.ay, point.Vector.D3.by, point.Vector.D3.cy, point.Vector.D3.y0, point.Vector.D3.dy0);
+            slove_second_order(point.Vector.D3.az, point.Vector.D3.bz, point.Vector.D3.cz, point.Vector.D3.z0, point.Vector.D3.dz0);
       }
-      else if (plan.dimensions == 2 ){
-            slove_second_order(plan.ax, plan.bx, plan.cx, plan.x0, plan.dx0);
-            slove_second_order(plan.ay, plan.by, plan.cy, plan.y0, plan.dy0);    
+      else if (plan.dimentions == 2 ){
+            slove_second_order(point.Vector.D2.ax, point.Vector.D2.bx, point.Vector.D2.cx, point.Vector.D2.x0, point.Vector.D2.dx0);
+            slove_second_order(point.Vector.D2.ay, point.Vector.D2.by, point.Vector.D2.cy, point.Vector.D2.y0, point.Vector.D2.dy0);    
       }
-      else if (plan.dimensions == 1){
-            slove_second_order(plan.ax, plan.bx, plan.cx, plan.x0, plan.dx0);
+      else if (plan.dimentions == 1){
+            slove_second_order(point.Vector.D1.ax, point.Vector.D1.bx, point.Vector.D1.cx, point.Vector.D1.x0, point.Vector.D1.dx0);
       }
       }      
 

@@ -7,16 +7,27 @@
 typedef struct _Point{
     union{
         struct{
-            int x;
+            double x;
+            double  ax, bx , cx ;
+            double x0 , dx0 ;
+     
         }D1;
         struct{
-            int x;
-            int y;
-            int z;
+            double x, y, z ;
+            double  ax , ay , az;
+            double bx , by , bz ;
+            double cx , cy , cz ;
+            double x0 , dx0 ;
+            double y0 , dy0 ;
+            double z0 , dz0 ;
         }D3;
         struct{
-            double x;
-            double y;
+            double x , y ;
+            double ax , bx , cx ;
+            double ay, by , cy ;
+            double x0 , dx0 ;
+            double y0 , dy0 ;
+      
         }D2;
     }Vector;
     double EnergieMecanique;
