@@ -1,0 +1,17 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "GCC 14.2.0 x86_64-w64-mingw32",
+            "displayName": "GCC 14.2.0 x86_64-w64-mingw32",
+            "description": "Using compilers: C = c:\\raylib\\w64devkit\\bin\\ccache-gcc.exe, CXX = c:\\raylib\\w64devkit\\bin\\ccache-g++.exe",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+                "CMAKE_C_COMPILER": "c:/raylib/w64devkit/bin/ccache-gcc.exe",
+                "CMAKE_CXX_COMPILER": "c:/raylib/w64devkit/bin/ccache-g++.exe",
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ]
+}

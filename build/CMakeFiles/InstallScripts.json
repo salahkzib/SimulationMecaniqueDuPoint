@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/HP/OneDrive/Bureau/mdp.project.c/build/cmake_install.cmake",
+		"C:/Users/HP/OneDrive/Bureau/mdp.project.c/build/_deps/raylib-build/cmake_install.cmake",
+		"C:/Users/HP/OneDrive/Bureau/mdp.project.c/build/_deps/raylib-build/raylib/cmake_install.cmake",
+		"C:/Users/HP/OneDrive/Bureau/mdp.project.c/build/_deps/raylib-build/raylib/external/glfw/cmake_install.cmake",
+		"C:/Users/HP/OneDrive/Bureau/mdp.project.c/build/_deps/raylib-build/raylib/external/glfw/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
