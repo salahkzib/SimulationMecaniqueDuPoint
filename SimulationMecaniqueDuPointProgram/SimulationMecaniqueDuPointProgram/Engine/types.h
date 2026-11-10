@@ -2,8 +2,7 @@
 #define TYPES_C
 
 typedef struct _Expression{
-    int x;
-    int y;
+    
 }Expression, *PtrExpression;
 typedef struct _VectorString{
     int size;

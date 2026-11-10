@@ -3,6 +3,7 @@
 
 void Initializing(String TypeExperienceParam, Plan planParam, Component *ComposantsParam, Force *ForcesExerceesParam, Force *ForceExternesParam, VectorDouble SensParam, VectorDouble PositionsInitialParam, int VitesseInitialParam, int masseParam, VectorDouble DonnesParam, VectorString QuestionsParam){
     t = 0;
+     
     point.masse = masseParam;
     if(planParam.dimentions == 1){
         point.Vector.D1.x = PositionsInitialParam.data[0];
@@ -18,7 +19,7 @@ void Initializing(String TypeExperienceParam, Plan planParam, Component *Composa
     TypeExperience = TypeExperienceParam;
     plan = planParam;
     Components = ComposantsParam;
-    ForcesExercees = ForcesExerceesParam;
+    ForcesExerces = ForcesExerceesParam;
     ForceExternes = ForceExternesParam;
     ConditionsInitiales = SensParam;
     Donnes = DonnesParam;

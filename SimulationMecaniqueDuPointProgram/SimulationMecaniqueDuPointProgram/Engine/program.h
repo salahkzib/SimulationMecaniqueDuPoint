@@ -7,16 +7,27 @@
 typedef struct _Point{
     union{
         struct{
-            int x;
+            double x;
+            double ax, bx , cx ;
+            double x0 , dx0 ;
+     
         }D1;
         struct{
-            int x;
-            int y;
-            int z;
+            double x, y, z ;
+            double ax , ay , az;
+            double bx , by , bz ;
+            double cx , cy , cz ;
+            double x0 , dx0 ;
+            double y0 , dy0 ;
+            double z0 , dz0 ;
         }D3;
         struct{
-            double x;
-            double y;
+            double x , y ;
+            double ax , bx , cx ;
+            double ay, by , cy ;
+            double x0 , dx0 ;
+            double y0 , dy0 ;
+      
         }D2;
     }Vector;
     double EnergieMecanique;
@@ -57,9 +68,14 @@ typedef struct _Plan{
 }Plan, *PtrPlan;
 
 typedef struct _Force{
+    Expression expression;
     double value;
     String TravailExpression;
     double Travail;
+    double coefficient;
+    double fx;
+    double fy;
+    double fz;
 }Force, *PtrForce;
 
 //CUS : Component under study
@@ -72,11 +88,23 @@ int t;
 extern String TypeExperience;
 extern Plan plan;
 extern Component *Components;
-extern Force *ForcesExercees;
-extern Force *ForceExternes;
 extern VectorDouble ConditionsInitiales;
 extern VectorDouble Donnes;
 extern VectorString Questions;
+extern Force *ForceExerces ;
+extern Force *ForceExternes;
+extern Force poids ;
+extern Force gravitationuniverselle ; 
+extern Force frottementfluidelineaire ;
+extern Force frottementfluidequadrtique ;
+extern Force rappel ;
+extern Force reactionnormal ;
+extern Force frottementsloide ;
+extern Force electromagnetique ;
+extern Force coulomb ;
+extern Force magnetique  ;
+extern Force inertie ; 
+extern Force coriolis ;
 
 void Initializing(int TypeExperienceArg, Plan planArg, Force[] ForcesExercees, Component[] ComponentsArg, DataCUS[] DataCUSArg);
 
