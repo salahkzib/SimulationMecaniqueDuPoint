@@ -62,6 +62,11 @@ typedef struct _Force{
     double Travail;
 }Force, *PtrForce;
 
+//CUS : Component under study
+typedef struct _DataCUS{
+    int masse;
+}DataCUS, *PtrDataCUS;
+
 Point point;
 int t;
 extern String TypeExperience;
@@ -73,7 +78,7 @@ extern VectorDouble ConditionsInitiales;
 extern VectorDouble Donnes;
 extern VectorString Questions;
 
-void Initializing();
+void Initializing(int TypeExperienceArg, Plan planArg, Force[] ForcesExercees, Component[] ComponentsArg, DataCUS[] DataCUSArg);
 
 String TrajectoireType(VectorInt Trajectoire);
 
