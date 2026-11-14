@@ -41,7 +41,7 @@ typedef struct _Point{
     double AccelerationCoriolis;
     double AccelerationPrime;
     double masse;
-    VectorInt Trajectoire;
+    Vector Trajectoire;
     Expression MouvementEquation;
     Expression VitesseEquation;
     Expression VitesseXEquation;
@@ -68,6 +68,7 @@ typedef struct _Plan{
 }Plan, *PtrPlan;
 
 typedef struct _Force{
+    String name;
     Expression expression;
     double value;
     String TravailExpression;
@@ -87,12 +88,9 @@ Point point;
 int t;
 extern String TypeExperience;
 extern Plan plan;
-extern Component *Components;
-extern VectorDouble ConditionsInitiales;
-extern VectorDouble Donnes;
-extern VectorString Questions;
-extern Force *ForceExerces ;
-extern Force *ForceExternes;
+extern Component Components[];
+extern DataCUS Donnes;
+extern Force ForceExerces[];
 extern Force poids ;
 extern Force gravitationuniverselle ; 
 extern Force frottementfluidelineaire ;
@@ -106,9 +104,9 @@ extern Force magnetique  ;
 extern Force inertie ; 
 extern Force coriolis ;
 
-void Initializing(int TypeExperienceArg, Plan planArg, Force[] ForcesExercees, Component[] ComponentsArg, DataCUS[] DataCUSArg);
+void Initializing(int TypeExperienceArg, Plan planArg, Force ForcesExercees[], Component ComponentsArg[], DataCUS DataCUSArg[]);
 
-String TrajectoireType(VectorInt Trajectoire);
+String TrajectoireType(Vector Trajectoire);
 
 double EnergieMecaniqueCalcul(Expression expression);
 double EnergiePotentielleCalcul(Expression expression);

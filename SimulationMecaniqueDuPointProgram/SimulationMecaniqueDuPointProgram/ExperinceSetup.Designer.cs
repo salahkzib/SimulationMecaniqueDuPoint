@@ -51,7 +51,7 @@
             comboBox1 = new ComboBox();
             label15 = new Label();
             comboBox2 = new ComboBox();
-            button1 = new Button();
+            ForcesExerceesConfigureBtn = new Button();
             button2 = new Button();
             comboBox3 = new ComboBox();
             comboBox4 = new ComboBox();
@@ -255,14 +255,15 @@
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 30;
             // 
-            // button1
+            // ForcesExerceesConfigureBtn
             // 
-            button1.Location = new Point(155, 182);
-            button1.Name = "button1";
-            button1.Size = new Size(111, 23);
-            button1.TabIndex = 31;
-            button1.Text = "configurer ";
-            button1.UseVisualStyleBackColor = true;
+            ForcesExerceesConfigureBtn.Location = new Point(155, 182);
+            ForcesExerceesConfigureBtn.Name = "ForcesExerceesConfigureBtn";
+            ForcesExerceesConfigureBtn.Size = new Size(111, 23);
+            ForcesExerceesConfigureBtn.TabIndex = 31;
+            ForcesExerceesConfigureBtn.Text = "configurer ";
+            ForcesExerceesConfigureBtn.UseVisualStyleBackColor = true;
+            ForcesExerceesConfigureBtn.Click += ForcesExerceesConfigureBtn_Click;
             // 
             // button2
             // 
@@ -315,7 +316,7 @@
             Controls.Add(comboBox4);
             Controls.Add(comboBox3);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(ForcesExerceesConfigureBtn);
             Controls.Add(comboBox2);
             Controls.Add(label15);
             Controls.Add(comboBox1);
@@ -371,7 +372,7 @@
         private ComboBox comboBox1;
         private Label label15;
         private ComboBox comboBox2;
-        private Button button1;
+        private Button ForcesExerceesConfigureBtn;
         private Button button2;
         private ComboBox comboBox3;
         private ComboBox comboBox4;

@@ -1,32 +1,12 @@
 #include <stdio.h>
 #include "program.h"
 
-void Initializing(String TypeExperienceParam, Plan planParam, Component *ComposantsParam, Force *ForcesExerceesParam, Force *ForceExternesParam, VectorDouble SensParam, VectorDouble PositionsInitialParam, int VitesseInitialParam, int masseParam, VectorDouble DonnesParam, VectorString QuestionsParam){
-    t = 0;
-     
-    point.masse = masseParam;
-    if(planParam.dimentions == 1){
-        point.Vector.D1.x = PositionsInitialParam.data[0];
-    }else if(planParam.dimentions == 2){
-        point.Vector.D2.x = PositionsInitialParam.data[0];
-        point.Vector.D2.y = PositionsInitialParam.data[1];
-    }else if(planParam.dimentions == 3){
-        point.Vector.D3.x = PositionsInitialParam.data[0];
-        point.Vector.D3.y = PositionsInitialParam.data[1];
-        point.Vector.D3.z = PositionsInitialParam.data[2];
-    }
-    point.EnergieCinetique = 0;
-    TypeExperience = TypeExperienceParam;
-    plan = planParam;
-    Components = ComposantsParam;
-    ForcesExerces = ForcesExerceesParam;
-    ForceExternes = ForceExternesParam;
-    ConditionsInitiales = SensParam;
-    Donnes = DonnesParam;
-    Questions = QuestionsParam;
+void Initializing(int TypeExperienceArg, Plan planArg, Force ForcesExercees[], Component ComponentsArg[], DataCUS DataCUSArg[]){
+   t = 0;
+   
 }
 
-String TrajectoireType(VectorInt Trajectoire){
+String TrajectoireType(Vector Trajectoire){
 
 }
 
@@ -105,17 +85,6 @@ Expression AccelerationEntrainementEquationeterminant(Point point){
 
 }
 
-/*
-
-typedef struct {
-      int dimensions;
-      double ax , bx , cx ;
-      double ay , by , cy ;
-      double az , bz , cz ;
-      double x0 , dx0 ;
-      double y0 , dy0 ;
-      double z0 , dz0 ;
-} plan;
 void solve_first_order(double a, double y0){
    if (a == 0 ){
       printf(" erreur ");
@@ -128,45 +97,47 @@ void solve_first_order(double a, double y0){
    printf(" y(t) = %f*epx( %f*t )\n",ley0,lea);
 }
 
-void solve_second_order( double a, double b, double c , double y0 , double dy0){
+void solve_second_order(double a, double b, double c , double var0 , double dvar0){
      if(a == 0){
-        solve_first_order (b,c,y0);
+        solve_first_order (b,c,var0,dvar0);
         return;
      }
      double delta = b * b - 4 * a *c ;
      if(delta > 0){
         double r1 = (-b + sqrt(delta))/ (2 * a) ;
         double r2 = (-b - sqrt(delta))/ (2 * a) ;
-        double C2 = (dy0 - r1 * y0)/ ( r2 - r1 );
-        double C1 = y0 - C2 ;
+        double C2 = (dvar0 - r1 * var0)/ ( r2 - r1 );
+        double C1 = var0 - C2 ;
         printf("y(t) = %.2f * exp(%.2f * t) + %.2f * exp(%.2f *t)", C1 , r1 , C2 , r2);
      }else if (delta == 0 ){
         double r = -b / (2 * a) ;
-        double C1 = y0 ;
-        double C2 = dy0 - r * y0 ;
+        double C1 = var0 ;
+        double C2 = dvar0 - r * var0 ;
         printf(" y(t) = (%.2f + %.2f * t)* exp(%.2f * t)", C1 , C2, r);
      } else {
         double alpha = -b / a ;
         double  beta = (sqrt(-delta ))/ (2 * a) ;
-        double C1 = y0 ;
-        double C2 = (dy0 - alpha)/ beta ;
+        double C1 = var0;
+        double C2 = (dvar0 - alpha)/ beta ;
         printf(" y(t) = exp(%.2f*t)*(%.2f*cos(%.2f*t) + %.2f*sin(%.2f*t))",alpha , C1, beta , C2 , beta );
      }
 }
 void DetEquationMov(){
-      if (plan.dimensions == 3){
-            slove_second_order(plan.ax, plan.bx, plan.cx, plan.x0, plan.dx0);
-            slove_second_order(plan.ay, plan.by, plan.cy, plan.y0, plan.dy0);
-            slove_second_order(plan.az, plan.bz, plan.cz, plan.z0, plan.dz0);
-      }
-      else if (plan.dimensions == 2 ){
-            slove_second_order(plan.ax, plan.bx, plan.cx, plan.x0, plan.dx0);
-            slove_second_order(plan.ay, plan.by, plan.cy, plan.y0, plan.dy0);
-      }
-      else if (plan.dimensions == 1){
-            slove_second_order(plan.ax, plan.bx, plan.cx, plan.x0, plan.dx0);
-      }
-      }
-
-
-*/
+   int ax, bx, cx, x0, dx0;
+   int ay, by, cy, y0, dy0;
+   int az, bz, cz, z0, dz0;
+   switch(plan.dimentions){
+      case 1:
+         solve_second_order(ax, bx, cx, x0, dx0);
+         break;
+      case 2:
+         solve_second_order(ax, bx, cx, x0, dx0);
+         solve_second_order(ay, by, cy, y0, dy0);
+         break;
+      case 3:
+         solve_second_order(ax, bx, cx, x0, dx0);
+         solve_second_order(ay, by, cy, y0, dy0);
+         solve_second_order(az, bz, cz, z0, dz0);
+         break;
+   }
+}
