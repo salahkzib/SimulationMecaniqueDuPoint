@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "ForceExerceesConfiguration";
+            AddForceBtn = new Button();
+            SuspendLayout();
+            // 
+            // AddForceBtn
+            // 
+            AddForceBtn.Location = new Point(316, 119);
+            AddForceBtn.Name = "AddForceBtn";
+            AddForceBtn.Size = new Size(106, 23);
+            AddForceBtn.TabIndex = 0;
+            AddForceBtn.Text = "ajouter une force";
+            AddForceBtn.UseVisualStyleBackColor = true;
+            AddForceBtn.Click += AddForceBtn_Click;
+            // 
+            // ForceExerceesConfiguration
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(AddForceBtn);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "ForceExerceesConfiguration";
+            Text = "ForceExerceesConfiguration";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button AddForceBtn;
     }
 }

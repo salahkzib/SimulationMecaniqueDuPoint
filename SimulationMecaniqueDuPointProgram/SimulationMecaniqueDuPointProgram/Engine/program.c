@@ -61,7 +61,7 @@ Expression VitesseEquationeterminant(Point point){
 
 }
 Expression VitesseXEquationeterminant(Point point){
-
+   
 }
 Expression VitesseYEquationeterminant(Point point){
 

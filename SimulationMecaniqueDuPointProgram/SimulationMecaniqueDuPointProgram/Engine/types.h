@@ -5,34 +5,33 @@
 typedef enum TypeVector{VString, VInt, VDouble, VFloat}TypeVector;
 typedef union _Vector{
     TypeVector type;
+    int size;
     struct{
-        int size;
         String *data;
     }VString, *PtrVString;
     struct{
-        int size;
         int *data;
     }VInt, *PtrVInt;
     struct{
-        int size;
         double *data;
     }VDouble, *PtrVDouble;
-
     struct {
-        int size;
         float *data;
     }VFloat, *PtrVFloat;
+    void* (*getDataAt)(int index);
 } Vector, *PtrVector;
+
 Vector createVector(int size, TypeVector type);
 void Remove(Vector *vector);
 void Add(Vector *vector, void *data);
 void InsertAt(Vector *vector, int index, void *data);
 void RemoveAt(Vector *vector, int index);
+void* getDataAt(int index);
 
 void FreeVector(Vector *vector);
 
 typedef enum _Function{cons ,func, dfunc, ddfunc}Function;
-typedef enum _Operation{add ,moins, mult, div}Operation;
+typedef enum _Operation{add ,minus, mult, div}Operation;
 
 typedef struct _VectorFunctions{
     int size;
@@ -43,6 +42,7 @@ VectorFunctions* createVectorFunctions(int size);
 typedef struct _Expression{
     VectorFunctions vars;    
     Vector varsCompValue;
+    Operation* operations;
 }Expression, *PtrExpression;
 Expression* createExpression(VectorFunctions vars, Vector varsCompValue);
 typedef struct {
@@ -53,6 +53,11 @@ typedef struct String{
     int length;
     char *data;
 }String, *PtrString;
+String creatString(String str);
+void AddCharacter();
+void AddCharacterAt();
+void RemoveCharacter();
+void RemoveCharacterAt();
 
 typedef struct {
     Vector3D position ;

@@ -14,5 +14,10 @@ namespace SimulationMecaniqueDuPointProgram
         {
             InitializeComponent();
         }
+
+        private void AddForceBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
